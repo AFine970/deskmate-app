@@ -67,6 +67,8 @@ import Greet from './components/Greet.vue';
     </p>
 
     <Greet />
+
+    <n-button>Default</n-button>
   </div>
 </template>
 

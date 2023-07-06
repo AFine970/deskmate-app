@@ -3,7 +3,6 @@ env:
   es6: true
 extends:
   - plugin:vue/vue3-recommended
-  - airbnb-base
   - plugin:@typescript-eslint/recommended
 globals:
   Atomics: readonly
@@ -16,8 +15,3 @@ parserOptions:
 plugins:
   - vue
   - '@typescript-eslint'
-rules: {
-  'import/no-extraneous-dependencies': 'off',
-  'vue/multi-word-component-names': 'off',
-  'import/no-unresolved': 'off'
-}

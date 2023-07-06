@@ -1,83 +1,52 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import Greet from './components/Greet.vue';
+import { ref } from 'vue';
+import AppLogo from './components/AppLogo.vue';
+import SiteChart from './views/site_chart/SiteChart.vue';
+import { darkTheme, zhCN, dateZhCN } from 'naive-ui';
+import type { BuiltInGlobalTheme } from 'naive-ui/es/themes/interface';
+
+const theme = ref<BuiltInGlobalTheme>()
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  // 暗黑模式
+  theme.value = darkTheme
+}
 </script>
 
 <template>
-  <div class="container">
-    <h1>Welcome to Tauri!</h1>
-
-    <div class="row">
-      <a
-        href="https://vitejs.dev"
-        target="_blank"
+  <n-config-provider
+    :theme="theme"
+    :locale="zhCN"
+    :date-locale="dateZhCN"
+  >
+    <n-layout style="height: 100vh">
+      <n-layout-header
+        style="height: 64px; display: flex; align-items: center; padding: 0 24px;"
+        bordered
       >
-        <img
-          src="/vite.svg"
-          class="logo vite"
-          alt="Vite logo"
-        >
-      </a>
-      <a
-        href="https://tauri.app"
-        target="_blank"
+        <AppLogo />
+      </n-layout-header>
+      <n-layout
+        position="absolute"
+        style="top: 64px;"
       >
-        <img
-          src="/tauri.svg"
-          class="logo tauri"
-          alt="Tauri logo"
+        <n-layout
+          content-style="padding: 24px 12px 0; min-height: 90vh"
+          :native-scrollbar="false"
         >
-      </a>
-      <a
-        href="https://vuejs.org/"
-        target="_blank"
-      >
-        <img
-          src="./assets/vue.svg"
-          class="logo vue"
-          alt="Vue logo"
+          <SiteChart />
+        </n-layout>
+        <n-layout-footer
+          style="height: 64px; padding: 24px; text-align: center; margin-top: 24px;"
         >
-      </a>
-    </div>
-
-    <p>Click on the Tauri, Vite, and Vue logos to learn more.</p>
-
-    <p>
-      Recommended IDE setup:
-      <a
-        href="https://code.visualstudio.com/"
-        target="_blank"
-      >VS Code</a>
-      +
-      <a
-        href="https://github.com/johnsoncodehk/volar"
-        target="_blank"
-      >Volar</a>
-      +
-      <a
-        href="https://github.com/tauri-apps/tauri-vscode"
-        target="_blank"
-      >Tauri</a>
-      +
-      <a
-        href="https://github.com/rust-lang/rust-analyzer"
-        target="_blank"
-      >rust-analyzer</a>
-    </p>
-
-    <Greet />
-
-    <n-button>Default</n-button>
-  </div>
+          Deskmate App ©2023 Created by AFine970
+        </n-layout-footer>
+      </n-layout>
+    </n-layout>
+  </n-config-provider>
 </template>
 
-<style scoped>
-.logo.vite:hover {
-  filter: drop-shadow(0 0 2em #747bff);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #249b73);
-}
+<style lang="less" scoped>
+// .logo.vite:hover {
+//   filter: drop-shadow(0 0 2em #747bff);
+// }
 </style>

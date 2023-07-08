@@ -25,7 +25,8 @@
     "lodash-es": "^4.17.21",
     "naive-ui": "^2.34.4",
     "vfonts": "^0.0.3",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "vue-router": "4"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.5",

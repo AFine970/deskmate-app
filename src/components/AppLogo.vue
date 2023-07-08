@@ -9,5 +9,5 @@ import imgUrl from '@/assets/vue.svg';
     height="32"
     alt="logo"
   >
-  <span style="font-size: 18px;cursor: pointer;padding-left: 8px;">同桌的你</span>
+  <span style="font-size: 18px;cursor: pointer;padding-left: 8px;">换座位吧</span>
 </template>

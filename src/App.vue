@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import AppLogo from './components/AppLogo.vue';
+import NavMenu from './components/NavMenu.vue';
 import SiteChart from './views/site_chart/SiteChart.vue';
 import { darkTheme, zhCN, dateZhCN } from 'naive-ui';
 import type { BuiltInGlobalTheme } from 'naive-ui/es/themes/interface';
@@ -24,6 +25,7 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
         bordered
       >
         <AppLogo />
+        <NavMenu />
       </n-layout-header>
       <n-layout
         position="absolute"
@@ -33,7 +35,9 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
           content-style="padding: 24px 12px 0; min-height: 90vh"
           :native-scrollbar="false"
         >
-          <SiteChart />
+          <n-message-provider>
+            <RouterView />
+          </n-message-provider>
         </n-layout>
         <n-layout-footer
           style="height: 64px; padding: 24px; text-align: center; margin-top: 24px;"

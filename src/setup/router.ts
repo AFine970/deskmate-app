@@ -3,17 +3,17 @@ import {
   createWebHashHistory,
   type RouteRecordRaw,
 } from 'vue-router';
-const Home = () => import('@/views/site_chart/SiteChart.vue');
-const About = () => import('@/views/student_info/InfoList.vue');
+
+const SiteChart = () => import('@/views/site_chart/SiteChart.vue');
+const InfoList = () => import('@/views/student_info/InfoList.vue');
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/chart',
   },
-  { path: '/home', component: Home },
-  { path: '/chart', component: About },
-  { path: '/list', component: About },
+  { path: '/chart', component: SiteChart },
+  { path: '/list', component: InfoList },
 ];
 
 const router = createRouter({

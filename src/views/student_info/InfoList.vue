@@ -2,6 +2,7 @@
 import { h } from 'vue';
 import { NTag, NButton, useMessage } from 'naive-ui';
 import type { DataTableColumns } from 'naive-ui';
+import ToolBar from './ToolBar.vue';
 
 type RowData = {
   key: number;
@@ -106,12 +107,20 @@ const pagination = {
 </script>
 
 <template>
+  <ToolBar />
   <n-data-table
     :bordered="false"
     :columns="columns"
     :data="data"
     :pagination="pagination"
+    class="student-info-list"
+    flex-height
   />
 </template>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.student-info-list {
+  margin-top: 12px;
+  height: calc(100vh - 72px);
+}
+</style>

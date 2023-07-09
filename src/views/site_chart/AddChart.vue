@@ -1,16 +1,17 @@
 <script lang='ts' setup>
-import { CashOutline as CashIcon } from '@vicons/ionicons5'
+import { Add as AddIcon } from '@vicons/ionicons5'
 </script>
 
 <template>
   <n-button
-    strong
-    secondary
-    circle
-    type="error"
+    type="primary"
+    dashed
+    style="width: 100%;height: 100%;"
   >
     <template #icon>
-      <n-icon><cash-icon /></n-icon>
+      <n-icon>
+        <add-icon style="font-size: 24px;" />
+      </n-icon>
     </template>
   </n-button>
 </template>

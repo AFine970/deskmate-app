@@ -3,9 +3,8 @@ import { h, ref, type Component, watch } from 'vue';
 import { NIcon } from 'naive-ui';
 import type { MenuOption } from 'naive-ui';
 import {
-  Home as HomeIcon,
-  LogoTableau as SiteIcon,
-  Man as InfoIcon,
+  TabletPortraitSharp as SiteIcon,
+  People as InfoIcon,
 } from '@vicons/ionicons5';
 import { RouterLink, useRoute } from 'vue-router';
 
@@ -14,20 +13,6 @@ function renderIcon(icon: Component) {
 }
 
 const menuOptions: MenuOption[] = [
-  {
-    label: () =>
-      h(
-        RouterLink,
-        {
-          to: {
-            path: '/home',
-          },
-        },
-        { default: () => '首页' }
-      ),
-    key: 'home',
-    icon: renderIcon(HomeIcon),
-  },
   {
     label: () =>
       h(
@@ -67,7 +52,6 @@ watch(() => route.path, (value) => {
 <template>
   <n-menu
     v-model:value="activeKey"
-    mode="horizontal"
     :options="menuOptions"
   />
 </template>

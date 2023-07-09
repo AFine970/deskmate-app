@@ -5,21 +5,18 @@ import AddChart from './AddChart.vue';
 
 <template>
   <n-grid
-    :x-gap="32"
-    :y-gap="48"
-    :cols="5"
+    :x-gap="24"
+    :y-gap="24"
+    :cols="4"
   >
     <n-grid-item>
       <AddChart />
     </n-grid-item>
     <n-grid-item
-      v-for="item in 9"
+      v-for="item in 11"
       :key="item"
     >
       <ChartCard />
     </n-grid-item>
   </n-grid>
 </template>
-
-<style lang='less' scoped>
-</style>

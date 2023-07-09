@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import AppLogo from './components/AppLogo.vue';
 import NavMenu from './components/NavMenu.vue';
-import SiteChart from './views/site_chart/SiteChart.vue';
 import { darkTheme, zhCN, dateZhCN } from 'naive-ui';
 import type { BuiltInGlobalTheme } from 'naive-ui/es/themes/interface';
 
@@ -19,33 +17,29 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
     :locale="zhCN"
     :date-locale="dateZhCN"
   >
-    <n-layout style="height: 100vh">
-      <n-layout-header
-        style="height: 64px; display: flex; align-items: center; padding: 0 24px;"
-        bordered
-      >
-        <AppLogo />
-        <NavMenu />
-      </n-layout-header>
+    <n-message-provider>
       <n-layout
-        position="absolute"
-        style="top: 64px;"
+        style="height: 100vh"
+        has-sider
       >
-        <n-layout
-          content-style="padding: 24px 12px 0; min-height: 90vh"
+        <n-layout-sider
+          bordered
+          show-trigger
+          collapse-mode="width"
+          :collapsed-width="64"
+          :width="240"
           :native-scrollbar="false"
         >
-          <n-message-provider>
-            <RouterView />
-          </n-message-provider>
-        </n-layout>
-        <n-layout-footer
-          style="height: 64px; padding: 24px; text-align: center; margin-top: 24px;"
+          <NavMenu :collapsed-width="64" />
+        </n-layout-sider>
+        <n-layout
+          content-style="padding: 12px"
+          :native-scrollbar="false"
         >
-          Deskmate App ©2023 Created by AFine970
-        </n-layout-footer>
+          <RouterView />
+        </n-layout>
       </n-layout>
-    </n-layout>
+    </n-message-provider>
   </n-config-provider>
 </template>
 
